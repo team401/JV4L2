@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -g  -shared -Wl,-soname,libJV4L2.so -o libJV4L2.so CMakeFiles/JV4L2.dir/JV4L2.c.o /usr/lib/x86_64-linux-gnu/libv4l2.so 

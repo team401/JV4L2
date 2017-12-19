@@ -1,0 +1,2 @@
+Options: 
+CMake: 3.8.2@/home/cameronearle/.local/share/umake/ide/clion/bin/cmake/bin/cmake
