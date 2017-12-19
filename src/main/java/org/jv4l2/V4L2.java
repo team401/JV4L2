@@ -21,9 +21,9 @@ public class V4L2 {
         Class c = null;
         String field = null;
         if (property.contains(".")) {
-            String[] split = property.split(".");
+            String[] split = property.split("\\.");
             try {
-                c = Class.forName("V4L2$" + split[0]);
+                c = Class.forName("org.jv4l2.V4L2$" + split[0]);
                 field = split[1];
             } catch (ClassNotFoundException e) {}
         } else {
@@ -82,7 +82,7 @@ public class V4L2 {
     public static final int V4L2_CID_VFLIP			= (V4L2_CID_BASE+21);
 
     public static final int V4L2_CID_POWER_LINE_FREQUENCY	= (V4L2_CID_BASE+24);
-    public class v4l2_power_line_frequency {
+    public static class v4l2_power_line_frequency {
         public static final int V4L2_CID_POWER_LINE_FREQUENCY_DISABLED	= 0;
         public static final int V4L2_CID_POWER_LINE_FREQUENCY_50HZ	= 1;
         public static final int V4L2_CID_POWER_LINE_FREQUENCY_60HZ	= 2;
@@ -95,7 +95,7 @@ public class V4L2 {
     public static final int V4L2_CID_CHROMA_AGC                     = (V4L2_CID_BASE+29);
     public static final int V4L2_CID_COLOR_KILLER                   = (V4L2_CID_BASE+30);
     public static final int V4L2_CID_COLORFX			= (V4L2_CID_BASE+31);
-    public class v4l2_colorfx {
+    public static class v4l2_colorfx {
         public static final int V4L2_COLORFX_NONE			= 0;
         public static final int V4L2_COLORFX_BW				= 1;
         public static final int V4L2_COLORFX_SEPIA			= 2;
@@ -188,7 +188,7 @@ public class V4L2 {
 
     /*  MPEG streams; specific to multiplexed streams */
     public static final int V4L2_CID_MPEG_STREAM_TYPE 		= (V4L2_CID_MPEG_BASE+0);
-    public class v4l2_mpeg_stream_type {
+    public static class v4l2_mpeg_stream_type {
         public static final int V4L2_MPEG_STREAM_TYPE_MPEG2_PS   = 0; /* MPEG-2 program stream */
         public static final int V4L2_MPEG_STREAM_TYPE_MPEG2_TS   = 1; /* MPEG-2 transport stream */
         public static final int V4L2_MPEG_STREAM_TYPE_MPEG1_SS   = 2; /* MPEG-1 system stream */
@@ -203,20 +203,20 @@ public class V4L2 {
     public static final int V4L2_CID_MPEG_STREAM_PES_ID_AUDIO 	= (V4L2_CID_MPEG_BASE+5);
     public static final int V4L2_CID_MPEG_STREAM_PES_ID_VIDEO 	= (V4L2_CID_MPEG_BASE+6);
     public static final int V4L2_CID_MPEG_STREAM_VBI_FMT 		= (V4L2_CID_MPEG_BASE+7);
-    public class v4l2_mpeg_stream_vbi_fmt {
+    public static class v4l2_mpeg_stream_vbi_fmt {
         public static final int V4L2_MPEG_STREAM_VBI_FMT_NONE = 0;  /* No VBI in the MPEG stream */
         public static final int V4L2_MPEG_STREAM_VBI_FMT_IVTV = 1;  /* VBI in private packets; IVTV format */
     }
 
     /*  MPEG audio controls specific to multiplexed streams  */
     public static final int V4L2_CID_MPEG_AUDIO_SAMPLING_FREQ 	= (V4L2_CID_MPEG_BASE+100);
-    public class v4l2_mpeg_audio_sampling_freq {
+    public static class v4l2_mpeg_audio_sampling_freq {
         public static final int V4L2_MPEG_AUDIO_SAMPLING_FREQ_44100 = 0;
         public static final int V4L2_MPEG_AUDIO_SAMPLING_FREQ_48000 = 1;
         public static final int V4L2_MPEG_AUDIO_SAMPLING_FREQ_32000 = 2;
     }
     public static final int V4L2_CID_MPEG_AUDIO_ENCODING 		= (V4L2_CID_MPEG_BASE+101);
-    public class v4l2_mpeg_audio_encoding {
+    public static class v4l2_mpeg_audio_encoding {
         public static final int V4L2_MPEG_AUDIO_ENCODING_LAYER_1 = 0;
         public static final int V4L2_MPEG_AUDIO_ENCODING_LAYER_2 = 1;
         public static final int V4L2_MPEG_AUDIO_ENCODING_LAYER_3 = 2;
@@ -224,7 +224,7 @@ public class V4L2 {
         public static final int V4L2_MPEG_AUDIO_ENCODING_AC3     = 4;
     }
     public static final int V4L2_CID_MPEG_AUDIO_L1_BITRATE 		= (V4L2_CID_MPEG_BASE+102);
-    public class v4l2_mpeg_audio_l1_bitrate {
+    public static class v4l2_mpeg_audio_l1_bitrate {
         public static final int V4L2_MPEG_AUDIO_L1_BITRATE_32K  = 0;
         public static final int V4L2_MPEG_AUDIO_L1_BITRATE_64K  = 1;
         public static final int V4L2_MPEG_AUDIO_L1_BITRATE_96K  = 2;
@@ -241,7 +241,7 @@ public class V4L2 {
         public static final int V4L2_MPEG_AUDIO_L1_BITRATE_448K = 13;
     }
     public static final int V4L2_CID_MPEG_AUDIO_L2_BITRATE 		= (V4L2_CID_MPEG_BASE+103);
-    public class v4l2_mpeg_audio_l2_bitrate {
+    public static class v4l2_mpeg_audio_l2_bitrate {
         public static final int V4L2_MPEG_AUDIO_L2_BITRATE_32K  = 0;
         public static final int V4L2_MPEG_AUDIO_L2_BITRATE_48K  = 1;
         public static final int V4L2_MPEG_AUDIO_L2_BITRATE_56K  = 2;
@@ -258,7 +258,7 @@ public class V4L2 {
         public static final int V4L2_MPEG_AUDIO_L2_BITRATE_384K = 13;
     }
     public static final int V4L2_CID_MPEG_AUDIO_L3_BITRATE 		= (V4L2_CID_MPEG_BASE+104);
-    public class v4l2_mpeg_audio_l3_bitrate {
+    public static class v4l2_mpeg_audio_l3_bitrate {
         public static final int V4L2_MPEG_AUDIO_L3_BITRATE_32K  = 0;
         public static final int V4L2_MPEG_AUDIO_L3_BITRATE_40K  = 1;
         public static final int V4L2_MPEG_AUDIO_L3_BITRATE_48K  = 2;
@@ -275,34 +275,34 @@ public class V4L2 {
         public static final int V4L2_MPEG_AUDIO_L3_BITRATE_320K = 13;
     }
     public static final int V4L2_CID_MPEG_AUDIO_MODE 		= (V4L2_CID_MPEG_BASE+105);
-    public class v4l2_mpeg_audio_mode {
+    public static class v4l2_mpeg_audio_mode {
         public static final int V4L2_MPEG_AUDIO_MODE_STEREO       = 0;
         public static final int V4L2_MPEG_AUDIO_MODE_JOINT_STEREO = 1;
         public static final int V4L2_MPEG_AUDIO_MODE_DUAL         = 2;
         public static final int V4L2_MPEG_AUDIO_MODE_MONO         = 3;
     }
     public static final int V4L2_CID_MPEG_AUDIO_MODE_EXTENSION 	= (V4L2_CID_MPEG_BASE+106);
-    public class v4l2_mpeg_audio_mode_extension {
+    public static class v4l2_mpeg_audio_mode_extension {
         public static final int V4L2_MPEG_AUDIO_MODE_EXTENSION_BOUND_4  = 0;
         public static final int V4L2_MPEG_AUDIO_MODE_EXTENSION_BOUND_8  = 1;
         public static final int V4L2_MPEG_AUDIO_MODE_EXTENSION_BOUND_12 = 2;
         public static final int V4L2_MPEG_AUDIO_MODE_EXTENSION_BOUND_16 = 3;
     }
     public static final int V4L2_CID_MPEG_AUDIO_EMPHASIS 		= (V4L2_CID_MPEG_BASE+107);
-    public class v4l2_mpeg_audio_emphasis {
+    public static class v4l2_mpeg_audio_emphasis {
         public static final int V4L2_MPEG_AUDIO_EMPHASIS_NONE         = 0;
         public static final int V4L2_MPEG_AUDIO_EMPHASIS_50_DIV_15_uS = 1;
         public static final int V4L2_MPEG_AUDIO_EMPHASIS_CCITT_J17    = 2;
     }
     public static final int V4L2_CID_MPEG_AUDIO_CRC 		= (V4L2_CID_MPEG_BASE+108);
-    public class v4l2_mpeg_audio_crc {
+    public static class v4l2_mpeg_audio_crc {
         public static final int V4L2_MPEG_AUDIO_CRC_NONE  = 0;
         public static final int V4L2_MPEG_AUDIO_CRC_CRC16 = 1;
     }
     public static final int V4L2_CID_MPEG_AUDIO_MUTE 		= (V4L2_CID_MPEG_BASE+109);
     public static final int V4L2_CID_MPEG_AUDIO_AAC_BITRATE		= (V4L2_CID_MPEG_BASE+110);
     public static final int V4L2_CID_MPEG_AUDIO_AC3_BITRATE		= (V4L2_CID_MPEG_BASE+111);
-    public class v4l2_mpeg_audio_ac3_bitrate {
+    public static class v4l2_mpeg_audio_ac3_bitrate {
         public static final int V4L2_MPEG_AUDIO_AC3_BITRATE_32K  = 0;
         public static final int V4L2_MPEG_AUDIO_AC3_BITRATE_40K  = 1;
         public static final int V4L2_MPEG_AUDIO_AC3_BITRATE_48K  = 2;
@@ -324,7 +324,7 @@ public class V4L2 {
         public static final int V4L2_MPEG_AUDIO_AC3_BITRATE_640K = 18;
     }
     public static final int V4L2_CID_MPEG_AUDIO_DEC_PLAYBACK	= (V4L2_CID_MPEG_BASE+112);
-    public class v4l2_mpeg_audio_dec_playback {
+    public static class v4l2_mpeg_audio_dec_playback {
         public static final int V4L2_MPEG_AUDIO_DEC_PLAYBACK_AUTO	    = 0;
         public static final int V4L2_MPEG_AUDIO_DEC_PLAYBACK_STEREO	    = 1;
         public static final int V4L2_MPEG_AUDIO_DEC_PLAYBACK_LEFT	    = 2;
@@ -336,13 +336,13 @@ public class V4L2 {
 
     /*  MPEG video controls specific to multiplexed streams */
     public static final int V4L2_CID_MPEG_VIDEO_ENCODING 		= (V4L2_CID_MPEG_BASE+200);
-    public class v4l2_mpeg_video_encoding {
+    public static class v4l2_mpeg_video_encoding {
         public static final int V4L2_MPEG_VIDEO_ENCODING_MPEG_1     = 0;
         public static final int V4L2_MPEG_VIDEO_ENCODING_MPEG_2     = 1;
         public static final int V4L2_MPEG_VIDEO_ENCODING_MPEG_4_AVC = 2;
     }
     public static final int V4L2_CID_MPEG_VIDEO_ASPECT 		= (V4L2_CID_MPEG_BASE+201);
-    public class v4l2_mpeg_video_aspect {
+    public static class v4l2_mpeg_video_aspect {
         public static final int V4L2_MPEG_VIDEO_ASPECT_1x1     = 0;
         public static final int V4L2_MPEG_VIDEO_ASPECT_4x3     = 1;
         public static final int V4L2_MPEG_VIDEO_ASPECT_16x9    = 2;
@@ -353,7 +353,7 @@ public class V4L2 {
     public static final int V4L2_CID_MPEG_VIDEO_GOP_CLOSURE 	= (V4L2_CID_MPEG_BASE+204);
     public static final int V4L2_CID_MPEG_VIDEO_PULLDOWN 		= (V4L2_CID_MPEG_BASE+205);
     public static final int V4L2_CID_MPEG_VIDEO_BITRATE_MODE 	= (V4L2_CID_MPEG_BASE+206);
-    public class v4l2_mpeg_video_bitrate_mode {
+    public static class v4l2_mpeg_video_bitrate_mode {
         public static final int V4L2_MPEG_VIDEO_BITRATE_MODE_VBR = 0;
         public static final int V4L2_MPEG_VIDEO_BITRATE_MODE_CBR = 1;
     }
@@ -367,7 +367,7 @@ public class V4L2 {
     public static final int V4L2_CID_MPEG_VIDEO_CYCLIC_INTRA_REFRESH_MB		= (V4L2_CID_MPEG_BASE+214);
     public static final int V4L2_CID_MPEG_VIDEO_FRAME_RC_ENABLE			= (V4L2_CID_MPEG_BASE+215);
     public static final int V4L2_CID_MPEG_VIDEO_HEADER_MODE				= (V4L2_CID_MPEG_BASE+216);
-    public class v4l2_mpeg_video_header_mode {
+    public static class v4l2_mpeg_video_header_mode {
         public static final int V4L2_MPEG_VIDEO_HEADER_MODE_SEPARATE			= 0;
         public static final int V4L2_MPEG_VIDEO_HEADER_MODE_JOINED_WITH_1ST_FRAME	= 1;
 
@@ -377,7 +377,7 @@ public class V4L2 {
     public static final int V4L2_CID_MPEG_VIDEO_MULTI_SLICE_MAX_BYTES	= (V4L2_CID_MPEG_BASE+219);
     public static final int V4L2_CID_MPEG_VIDEO_MULTI_SLICE_MAX_MB		= (V4L2_CID_MPEG_BASE+220);
     public static final int V4L2_CID_MPEG_VIDEO_MULTI_SLICE_MODE		= (V4L2_CID_MPEG_BASE+221);
-    public class v4l2_mpeg_video_multi_slice_mode {
+    public static class v4l2_mpeg_video_multi_slice_mode {
         public static final int V4L2_MPEG_VIDEO_MULTI_SLICE_MODE_SINGLE		= 0;
         public static final int V4L2_MPEG_VIDEO_MULTI_SICE_MODE_MAX_MB		= 1;
         public static final int V4L2_MPEG_VIDEO_MULTI_SICE_MODE_MAX_BYTES	= 2;
@@ -404,13 +404,13 @@ public class V4L2 {
     public static final int V4L2_CID_MPEG_VIDEO_H264_8X8_TRANSFORM		= (V4L2_CID_MPEG_BASE+355);
     public static final int V4L2_CID_MPEG_VIDEO_H264_CPB_SIZE		= (V4L2_CID_MPEG_BASE+356);
     public static final int V4L2_CID_MPEG_VIDEO_H264_ENTROPY_MODE		= (V4L2_CID_MPEG_BASE+357);
-    public class v4l2_mpeg_video_h264_entropy_mode {
+    public static class v4l2_mpeg_video_h264_entropy_mode {
         public static final int V4L2_MPEG_VIDEO_H264_ENTROPY_MODE_CAVLC	= 0;
         public static final int V4L2_MPEG_VIDEO_H264_ENTROPY_MODE_CABAC	= 1;
     }
     public static final int V4L2_CID_MPEG_VIDEO_H264_I_PERIOD		= (V4L2_CID_MPEG_BASE+358);
     public static final int V4L2_CID_MPEG_VIDEO_H264_LEVEL			= (V4L2_CID_MPEG_BASE+359);
-    public class v4l2_mpeg_video_h264_level {
+    public static class v4l2_mpeg_video_h264_level {
         public static final int V4L2_MPEG_VIDEO_H264_LEVEL_1_0	= 0;
         public static final int V4L2_MPEG_VIDEO_H264_LEVEL_1B	= 1;
         public static final int V4L2_MPEG_VIDEO_H264_LEVEL_1_1	= 2;
@@ -431,13 +431,13 @@ public class V4L2 {
     public static final int V4L2_CID_MPEG_VIDEO_H264_LOOP_FILTER_ALPHA	= (V4L2_CID_MPEG_BASE+360);
     public static final int V4L2_CID_MPEG_VIDEO_H264_LOOP_FILTER_BETA	= (V4L2_CID_MPEG_BASE+361);
     public static final int V4L2_CID_MPEG_VIDEO_H264_LOOP_FILTER_MODE	= (V4L2_CID_MPEG_BASE+362);
-    public class v4l2_mpeg_video_h264_loop_filter_mode {
+    public static class v4l2_mpeg_video_h264_loop_filter_mode {
         public static final int V4L2_MPEG_VIDEO_H264_LOOP_FILTER_MODE_ENABLED				= 0;
         public static final int V4L2_MPEG_VIDEO_H264_LOOP_FILTER_MODE_DISABLED				= 1;
         public static final int V4L2_MPEG_VIDEO_H264_LOOP_FILTER_MODE_DISABLED_AT_SLICE_BOUNDARY	= 2;
     }
     public static final int V4L2_CID_MPEG_VIDEO_H264_PROFILE		= (V4L2_CID_MPEG_BASE+363);
-    public class v4l2_mpeg_video_h264_profile {
+    public static class v4l2_mpeg_video_h264_profile {
         public static final int V4L2_MPEG_VIDEO_H264_PROFILE_BASELINE			= 0;
         public static final int V4L2_MPEG_VIDEO_H264_PROFILE_CONSTRAINED_BASELINE	= 1;
         public static final int V4L2_MPEG_VIDEO_H264_PROFILE_MAIN			= 2;
@@ -460,7 +460,7 @@ public class V4L2 {
     public static final int V4L2_CID_MPEG_VIDEO_H264_VUI_EXT_SAR_WIDTH	= (V4L2_CID_MPEG_BASE+365);
     public static final int V4L2_CID_MPEG_VIDEO_H264_VUI_SAR_ENABLE		= (V4L2_CID_MPEG_BASE+366);
     public static final int V4L2_CID_MPEG_VIDEO_H264_VUI_SAR_IDC		= (V4L2_CID_MPEG_BASE+367);
-    public class v4l2_mpeg_video_h264_vui_sar_idc {
+    public static class v4l2_mpeg_video_h264_vui_sar_idc {
         public static final int V4L2_MPEG_VIDEO_H264_VUI_SAR_IDC_UNSPECIFIED	= 0;
         public static final int V4L2_MPEG_VIDEO_H264_VUI_SAR_IDC_1x1		= 1;
         public static final int V4L2_MPEG_VIDEO_H264_VUI_SAR_IDC_12x11		= 2;
@@ -483,7 +483,7 @@ public class V4L2 {
     public static final int V4L2_CID_MPEG_VIDEO_H264_SEI_FRAME_PACKING		= (V4L2_CID_MPEG_BASE+368);
     public static final int V4L2_CID_MPEG_VIDEO_H264_SEI_FP_CURRENT_FRAME_0		= (V4L2_CID_MPEG_BASE+369);
     public static final int V4L2_CID_MPEG_VIDEO_H264_SEI_FP_ARRANGEMENT_TYPE	= (V4L2_CID_MPEG_BASE+370);
-    public class v4l2_mpeg_video_h264_sei_fp_arrangement_type {
+    public static class v4l2_mpeg_video_h264_sei_fp_arrangement_type {
         public static final int V4L2_MPEG_VIDEO_H264_SEI_FP_ARRANGEMENT_TYPE_CHECKERBOARD	= 0;
         public static final int V4L2_MPEG_VIDEO_H264_SEI_FP_ARRANGEMENT_TYPE_COLUMN		= 1;
         public static final int V4L2_MPEG_VIDEO_H264_SEI_FP_ARRANGEMENT_TYPE_ROW		= 2;
@@ -493,7 +493,7 @@ public class V4L2 {
     }
     public static final int V4L2_CID_MPEG_VIDEO_H264_FMO			= (V4L2_CID_MPEG_BASE+371);
     public static final int V4L2_CID_MPEG_VIDEO_H264_FMO_MAP_TYPE		= (V4L2_CID_MPEG_BASE+372);
-    public class v4l2_mpeg_video_h264_fmo_map_type {
+    public static class v4l2_mpeg_video_h264_fmo_map_type {
         public static final int V4L2_MPEG_VIDEO_H264_FMO_MAP_TYPE_INTERLEAVED_SLICES		= 0;
         public static final int V4L2_MPEG_VIDEO_H264_FMO_MAP_TYPE_SCATTERED_SLICES		= 1;
         public static final int V4L2_MPEG_VIDEO_H264_FMO_MAP_TYPE_FOREGROUND_WITH_LEFT_OVER	= 2;
@@ -504,7 +504,7 @@ public class V4L2 {
     }
     public static final int V4L2_CID_MPEG_VIDEO_H264_FMO_SLICE_GROUP	= (V4L2_CID_MPEG_BASE+373);
     public static final int V4L2_CID_MPEG_VIDEO_H264_FMO_CHANGE_DIRECTION	= (V4L2_CID_MPEG_BASE+374);
-    public class v4l2_mpeg_video_h264_fmo_change_dir {
+    public static class v4l2_mpeg_video_h264_fmo_change_dir {
         public static final int V4L2_MPEG_VIDEO_H264_FMO_CHANGE_DIR_RIGHT	= 0;
         public static final int V4L2_MPEG_VIDEO_H264_FMO_CHANGE_DIR_LEFT	= 1;
     }
@@ -514,7 +514,7 @@ public class V4L2 {
     public static final int V4L2_CID_MPEG_VIDEO_H264_ASO_SLICE_ORDER	= (V4L2_CID_MPEG_BASE+378);
     public static final int V4L2_CID_MPEG_VIDEO_H264_HIERARCHICAL_CODING		= (V4L2_CID_MPEG_BASE+379);
     public static final int V4L2_CID_MPEG_VIDEO_H264_HIERARCHICAL_CODING_TYPE	= (V4L2_CID_MPEG_BASE+380);
-    public class v4l2_mpeg_video_h264_hierarchical_coding_type {
+    public static class v4l2_mpeg_video_h264_hierarchical_coding_type {
         public static final int V4L2_MPEG_VIDEO_H264_HIERARCHICAL_CODING_B	= 0;
         public static final int V4L2_MPEG_VIDEO_H264_HIERARCHICAL_CODING_P	= 1;
     }
@@ -526,7 +526,7 @@ public class V4L2 {
     public static final int V4L2_CID_MPEG_VIDEO_MPEG4_MIN_QP	= (V4L2_CID_MPEG_BASE+403);
     public static final int V4L2_CID_MPEG_VIDEO_MPEG4_MAX_QP	= (V4L2_CID_MPEG_BASE+404);
     public static final int V4L2_CID_MPEG_VIDEO_MPEG4_LEVEL		= (V4L2_CID_MPEG_BASE+405);
-    public class v4l2_mpeg_video_mpeg4_level {
+    public static class v4l2_mpeg_video_mpeg4_level {
         public static final int V4L2_MPEG_VIDEO_MPEG4_LEVEL_0	= 0;
         public static final int V4L2_MPEG_VIDEO_MPEG4_LEVEL_0B	= 1;
         public static final int V4L2_MPEG_VIDEO_MPEG4_LEVEL_1	= 2;
@@ -537,7 +537,7 @@ public class V4L2 {
         public static final int V4L2_MPEG_VIDEO_MPEG4_LEVEL_5	= 7;
     }
     public static final int V4L2_CID_MPEG_VIDEO_MPEG4_PROFILE	= (V4L2_CID_MPEG_BASE+406);
-    public class v4l2_mpeg_video_mpeg4_profile {
+    public static class v4l2_mpeg_video_mpeg4_profile {
         public static final int V4L2_MPEG_VIDEO_MPEG4_PROFILE_SIMPLE				= 0;
         public static final int V4L2_MPEG_VIDEO_MPEG4_PROFILE_ADVANCED_SIMPLE			= 1;
         public static final int V4L2_MPEG_VIDEO_MPEG4_PROFILE_CORE				= 2;
@@ -551,7 +551,7 @@ public class V4L2 {
      *  as that class is already handling other video compression standards
      */
     public static final int V4L2_CID_MPEG_VIDEO_VPX_NUM_PARTITIONS		= (V4L2_CID_MPEG_BASE+500);
-    public class v4l2_vp8_num_partitions {
+    public static class v4l2_vp8_num_partitions {
         public static final int V4L2_CID_MPEG_VIDEO_VPX_1_PARTITION	= 0;
         public static final int V4L2_CID_MPEG_VIDEO_VPX_2_PARTITIONS	= 1;
         public static final int V4L2_CID_MPEG_VIDEO_VPX_4_PARTITIONS	= 2;
@@ -559,7 +559,7 @@ public class V4L2 {
     }
     public static final int V4L2_CID_MPEG_VIDEO_VPX_IMD_DISABLE_4X4		= (V4L2_CID_MPEG_BASE+501);
     public static final int V4L2_CID_MPEG_VIDEO_VPX_NUM_REF_FRAMES		= (V4L2_CID_MPEG_BASE+502);
-    public class v4l2_vp8_num_ref_frames {
+    public static class v4l2_vp8_num_ref_frames {
         public static final int V4L2_CID_MPEG_VIDEO_VPX_1_REF_FRAME	= 0;
         public static final int V4L2_CID_MPEG_VIDEO_VPX_2_REF_FRAME	= 1;
         public static final int V4L2_CID_MPEG_VIDEO_VPX_3_REF_FRAME	= 2;
@@ -568,7 +568,7 @@ public class V4L2 {
     public static final int V4L2_CID_MPEG_VIDEO_VPX_FILTER_SHARPNESS	= (V4L2_CID_MPEG_BASE+504);
     public static final int V4L2_CID_MPEG_VIDEO_VPX_GOLDEN_FRAME_REF_PERIOD	= (V4L2_CID_MPEG_BASE+505);
     public static final int V4L2_CID_MPEG_VIDEO_VPX_GOLDEN_FRAME_SEL	= (V4L2_CID_MPEG_BASE+506);
-    public class v4l2_vp8_golden_frame_sel {
+    public static class v4l2_vp8_golden_frame_sel {
         public static final int V4L2_CID_MPEG_VIDEO_VPX_GOLDEN_FRAME_USE_PREV		= 0;
         public static final int V4L2_CID_MPEG_VIDEO_VPX_GOLDEN_FRAME_USE_REF_PERIOD	= 1;
     }
@@ -581,13 +581,13 @@ public class V4L2 {
     /*  MPEG-class control IDs specific to the CX2341x driver as defined by V4L2 */
     public static final int V4L2_CID_MPEG_CX2341X_BASE 				= (V4L2_CTRL_CLASS_MPEG | 0x1000);
     public static final int V4L2_CID_MPEG_CX2341X_VIDEO_SPATIAL_FILTER_MODE 	= (V4L2_CID_MPEG_CX2341X_BASE+0);
-    public class v4l2_mpeg_cx2341x_video_spatial_filter_mode {
+    public static class v4l2_mpeg_cx2341x_video_spatial_filter_mode {
         public static final int V4L2_MPEG_CX2341X_VIDEO_SPATIAL_FILTER_MODE_MANUAL = 0;
         public static final int V4L2_MPEG_CX2341X_VIDEO_SPATIAL_FILTER_MODE_AUTO   = 1;
     }
     public static final int V4L2_CID_MPEG_CX2341X_VIDEO_SPATIAL_FILTER 		= (V4L2_CID_MPEG_CX2341X_BASE+1);
     public static final int V4L2_CID_MPEG_CX2341X_VIDEO_LUMA_SPATIAL_FILTER_TYPE 	= (V4L2_CID_MPEG_CX2341X_BASE+2);
-    public class v4l2_mpeg_cx2341x_video_luma_spatial_filter_type {
+    public static class v4l2_mpeg_cx2341x_video_luma_spatial_filter_type {
         public static final int V4L2_MPEG_CX2341X_VIDEO_LUMA_SPATIAL_FILTER_TYPE_OFF                  = 0;
         public static final int V4L2_MPEG_CX2341X_VIDEO_LUMA_SPATIAL_FILTER_TYPE_1D_HOR               = 1;
         public static final int V4L2_MPEG_CX2341X_VIDEO_LUMA_SPATIAL_FILTER_TYPE_1D_VERT              = 2;
@@ -595,18 +595,18 @@ public class V4L2 {
         public static final int V4L2_MPEG_CX2341X_VIDEO_LUMA_SPATIAL_FILTER_TYPE_2D_SYM_NON_SEPARABLE = 4;
     }
     public static final int V4L2_CID_MPEG_CX2341X_VIDEO_CHROMA_SPATIAL_FILTER_TYPE 	= (V4L2_CID_MPEG_CX2341X_BASE+3);
-    public class v4l2_mpeg_cx2341x_video_chroma_spatial_filter_type {
+    public static class v4l2_mpeg_cx2341x_video_chroma_spatial_filter_type {
         public static final int V4L2_MPEG_CX2341X_VIDEO_CHROMA_SPATIAL_FILTER_TYPE_OFF    = 0;
         public static final int V4L2_MPEG_CX2341X_VIDEO_CHROMA_SPATIAL_FILTER_TYPE_1D_HOR = 1;
     }
     public static final int V4L2_CID_MPEG_CX2341X_VIDEO_TEMPORAL_FILTER_MODE 	= (V4L2_CID_MPEG_CX2341X_BASE+4);
-    public class v4l2_mpeg_cx2341x_video_temporal_filter_mode {
+    public static class v4l2_mpeg_cx2341x_video_temporal_filter_mode {
         public static final int V4L2_MPEG_CX2341X_VIDEO_TEMPORAL_FILTER_MODE_MANUAL = 0;
         public static final int V4L2_MPEG_CX2341X_VIDEO_TEMPORAL_FILTER_MODE_AUTO   = 1;
     }
     public static final int V4L2_CID_MPEG_CX2341X_VIDEO_TEMPORAL_FILTER 		= (V4L2_CID_MPEG_CX2341X_BASE+5);
     public static final int V4L2_CID_MPEG_CX2341X_VIDEO_MEDIAN_FILTER_TYPE 		= (V4L2_CID_MPEG_CX2341X_BASE+6);
-    public class v4l2_mpeg_cx2341x_video_median_filter_type {
+    public static class v4l2_mpeg_cx2341x_video_median_filter_type {
         public static final int V4L2_MPEG_CX2341X_VIDEO_MEDIAN_FILTER_TYPE_OFF      = 0;
         public static final int V4L2_MPEG_CX2341X_VIDEO_MEDIAN_FILTER_TYPE_HOR      = 1;
         public static final int V4L2_MPEG_CX2341X_VIDEO_MEDIAN_FILTER_TYPE_VERT     = 2;
@@ -625,13 +625,13 @@ public class V4L2 {
     public static final int V4L2_CID_MPEG_MFC51_VIDEO_DECODER_H264_DISPLAY_DELAY		= (V4L2_CID_MPEG_MFC51_BASE+0);
     public static final int V4L2_CID_MPEG_MFC51_VIDEO_DECODER_H264_DISPLAY_DELAY_ENABLE	= (V4L2_CID_MPEG_MFC51_BASE+1);
     public static final int V4L2_CID_MPEG_MFC51_VIDEO_FRAME_SKIP_MODE			= (V4L2_CID_MPEG_MFC51_BASE+2);
-    public class v4l2_mpeg_mfc51_video_frame_skip_mode {
+    public static class v4l2_mpeg_mfc51_video_frame_skip_mode {
         public static final int V4L2_MPEG_MFC51_VIDEO_FRAME_SKIP_MODE_DISABLED		= 0;
         public static final int V4L2_MPEG_MFC51_VIDEO_FRAME_SKIP_MODE_LEVEL_LIMIT	= 1;
         public static final int V4L2_MPEG_MFC51_VIDEO_FRAME_SKIP_MODE_BUF_LIMIT		= 2;
     }
     public static final int V4L2_CID_MPEG_MFC51_VIDEO_FORCE_FRAME_TYPE			= (V4L2_CID_MPEG_MFC51_BASE+3);
-    public class v4l2_mpeg_mfc51_video_force_frame_type {
+    public static class v4l2_mpeg_mfc51_video_force_frame_type {
         public static final int V4L2_MPEG_MFC51_VIDEO_FORCE_FRAME_TYPE_DISABLED		= 0;
         public static final int V4L2_MPEG_MFC51_VIDEO_FORCE_FRAME_TYPE_I_FRAME		= 1;
         public static final int V4L2_MPEG_MFC51_VIDEO_FORCE_FRAME_TYPE_NOT_CODED	= 2;
@@ -653,7 +653,7 @@ public class V4L2 {
     public static final int V4L2_CID_CAMERA_CLASS 		= (V4L2_CTRL_CLASS_CAMERA | 1);
 
     public static final int V4L2_CID_EXPOSURE_AUTO			= (V4L2_CID_CAMERA_CLASS_BASE+1);
-    public class  v4l2_exposure_auto_type {
+    public static class  v4l2_exposure_auto_type {
         public static final int V4L2_EXPOSURE_AUTO = 0;
         public static final int V4L2_EXPOSURE_MANUAL = 1;
         public static final int V4L2_EXPOSURE_SHUTTER_PRIORITY = 2;
@@ -686,7 +686,7 @@ public class V4L2 {
     public static final int V4L2_CID_AUTO_EXPOSURE_BIAS		= (V4L2_CID_CAMERA_CLASS_BASE+19);
 
     public static final int V4L2_CID_AUTO_N_PRESET_WHITE_BALANCE	= (V4L2_CID_CAMERA_CLASS_BASE+20);
-    public class v4l2_auto_n_preset_white_balance {
+    public static class v4l2_auto_n_preset_white_balance {
         public static final int V4L2_WHITE_BALANCE_MANUAL		= 0;
         public static final int V4L2_WHITE_BALANCE_AUTO			= 1;
         public static final int V4L2_WHITE_BALANCE_INCANDESCENT		= 2;
@@ -704,13 +704,13 @@ public class V4L2 {
 
     public static final int V4L2_CID_ISO_SENSITIVITY		= (V4L2_CID_CAMERA_CLASS_BASE+23);
     public static final int V4L2_CID_ISO_SENSITIVITY_AUTO		= (V4L2_CID_CAMERA_CLASS_BASE+24);
-    public class v4l2_iso_sensitivity_auto_type {
+    public static class v4l2_iso_sensitivity_auto_type {
         public static final int V4L2_ISO_SENSITIVITY_MANUAL		= 0;
         public static final int V4L2_ISO_SENSITIVITY_AUTO		= 1;
     }
 
     public static final int V4L2_CID_EXPOSURE_METERING		= (V4L2_CID_CAMERA_CLASS_BASE+25);
-    public class v4l2_exposure_metering {
+    public static class v4l2_exposure_metering {
         public static final int V4L2_EXPOSURE_METERING_AVERAGE		= 0;
         public static final int V4L2_EXPOSURE_METERING_CENTER_WEIGHTED	= 1;
         public static final int V4L2_EXPOSURE_METERING_SPOT		= 2;
@@ -718,7 +718,7 @@ public class V4L2 {
     }
 
     public static final int V4L2_CID_SCENE_MODE			= (V4L2_CID_CAMERA_CLASS_BASE+26);
-    public class v4l2_scene_mode {
+    public static class v4l2_scene_mode {
         public static final int V4L2_SCENE_MODE_NONE			= 0;
         public static final int V4L2_SCENE_MODE_BACKLIGHT		= 1;
         public static final int V4L2_SCENE_MODE_BEACH_SNOW		= 2;
@@ -749,7 +749,7 @@ public class V4L2 {
     public static final int V4L2_AUTO_FOCUS_STATUS_FAILED		= (1 << 2);
 
     public static final int V4L2_CID_AUTO_FOCUS_RANGE		= (V4L2_CID_CAMERA_CLASS_BASE+31);
-    public class v4l2_auto_focus_range {
+    public static class v4l2_auto_focus_range {
         public static final int V4L2_AUTO_FOCUS_RANGE_AUTO		= 0;
         public static final int V4L2_AUTO_FOCUS_RANGE_NORMAL		= 1;
         public static final int V4L2_AUTO_FOCUS_RANGE_MACRO		= 2;
@@ -794,7 +794,7 @@ public class V4L2 {
     public static final int V4L2_CID_PILOT_TONE_FREQUENCY		= (V4L2_CID_FM_TX_CLASS_BASE + 98);
 
     public static final int V4L2_CID_TUNE_PREEMPHASIS		= (V4L2_CID_FM_TX_CLASS_BASE + 112);
-    public class v4l2_preemphasis {
+    public static class v4l2_preemphasis {
         public static final int V4L2_PREEMPHASIS_DISABLED	= 0;
         public static final int V4L2_PREEMPHASIS_50_uS		= 1;
         public static final int V4L2_PREEMPHASIS_75_uS		= 2;
@@ -809,14 +809,14 @@ public class V4L2 {
     public static final int V4L2_CID_FLASH_CLASS			= (V4L2_CTRL_CLASS_FLASH | 1);
 
     public static final int V4L2_CID_FLASH_LED_MODE			= (V4L2_CID_FLASH_CLASS_BASE + 1);
-    public class v4l2_flash_led_mode {
+    public static class v4l2_flash_led_mode {
         public static final int V4L2_FLASH_LED_MODE_NONE = 0;
         public static final int V4L2_FLASH_LED_MODE_FLASH = 1;
         public static final int V4L2_FLASH_LED_MODE_TORCH = 2;
     }
 
     public static final int V4L2_CID_FLASH_STROBE_SOURCE		= (V4L2_CID_FLASH_CLASS_BASE + 2);
-    public class v4l2_flash_strobe_source {
+    public static class v4l2_flash_strobe_source {
         public static final int V4L2_FLASH_STROBE_SOURCE_SOFTWARE = 0;
         public static final int V4L2_FLASH_STROBE_SOURCE_EXTERNAL = 1;
     }
@@ -851,7 +851,7 @@ public class V4L2 {
     public static final int V4L2_CID_JPEG_CLASS			= (V4L2_CTRL_CLASS_JPEG | 1);
 
     public static final int	V4L2_CID_JPEG_CHROMA_SUBSAMPLING	= (V4L2_CID_JPEG_CLASS_BASE + 1);
-    public class v4l2_jpeg_chroma_subsampling {
+    public static class v4l2_jpeg_chroma_subsampling {
         public static final int V4L2_JPEG_CHROMA_SUBSAMPLING_444	= 0;
         public static final int V4L2_JPEG_CHROMA_SUBSAMPLING_422	= 1;
         public static final int V4L2_JPEG_CHROMA_SUBSAMPLING_420	= 2;
@@ -902,19 +902,19 @@ public class V4L2 {
     public static final int	V4L2_CID_DV_TX_RXSENSE			= (V4L2_CID_DV_CLASS_BASE + 2);
     public static final int	V4L2_CID_DV_TX_EDID_PRESENT		= (V4L2_CID_DV_CLASS_BASE + 3);
     public static final int	V4L2_CID_DV_TX_MODE			= (V4L2_CID_DV_CLASS_BASE + 4);
-    public class v4l2_dv_tx_mode {
+    public static class v4l2_dv_tx_mode {
         public static final int V4L2_DV_TX_MODE_DVI_D	= 0;
         public static final int V4L2_DV_TX_MODE_HDMI	= 1;
     }
     public static final int V4L2_CID_DV_TX_RGB_RANGE		= (V4L2_CID_DV_CLASS_BASE + 5);
-    public class v4l2_dv_rgb_range {
+    public static class v4l2_dv_rgb_range {
         public static final int V4L2_DV_RGB_RANGE_AUTO	  = 0;
         public static final int V4L2_DV_RGB_RANGE_LIMITED = 1;
         public static final int V4L2_DV_RGB_RANGE_FULL	  = 2;
     }
 
     public static final int V4L2_CID_DV_TX_IT_CONTENT_TYPE		= (V4L2_CID_DV_CLASS_BASE + 6);
-    public class v4l2_dv_it_content_type {
+    public static class v4l2_dv_it_content_type {
         public static final int V4L2_DV_IT_CONTENT_TYPE_GRAPHICS  = 0;
         public static final int V4L2_DV_IT_CONTENT_TYPE_PHOTO	  = 1;
         public static final int V4L2_DV_IT_CONTENT_TYPE_CINEMA	  = 2;
@@ -930,7 +930,7 @@ public class V4L2 {
     public static final int V4L2_CID_FM_RX_CLASS			= (V4L2_CTRL_CLASS_FM_RX | 1);
 
     public static final int V4L2_CID_TUNE_DEEMPHASIS		= (V4L2_CID_FM_RX_CLASS_BASE + 1);
-    public class v4l2_deemphasis {
+    public static class v4l2_deemphasis {
         public static final int V4L2_DEEMPHASIS_DISABLED	= v4l2_preemphasis.V4L2_PREEMPHASIS_DISABLED;
         public static final int V4L2_DEEMPHASIS_50_uS		= v4l2_preemphasis.V4L2_PREEMPHASIS_50_uS;
         public static final int V4L2_DEEMPHASIS_75_uS		= v4l2_preemphasis.V4L2_PREEMPHASIS_75_uS;
@@ -964,7 +964,7 @@ public class V4L2 {
     public static final int V4L2_CID_DETECT_CLASS			= (V4L2_CTRL_CLASS_DETECT | 1);
 
     public static final int V4L2_CID_DETECT_MD_MODE			= (V4L2_CID_DETECT_CLASS_BASE + 1);
-    public class v4l2_detect_md_mode {
+    public static class v4l2_detect_md_mode {
         public static final int V4L2_DETECT_MD_MODE_DISABLED		= 0;
         public static final int V4L2_DETECT_MD_MODE_GLOBAL		= 1;
         public static final int V4L2_DETECT_MD_MODE_THRESHOLD_GRID	= 2;
