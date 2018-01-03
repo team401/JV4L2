@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 2.7)
 project(JV4L2)
 
 set(CMAKE_C_STANDARD 99)

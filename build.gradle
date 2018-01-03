@@ -1,5 +1,9 @@
-group 'net.came20'
-version '1.0-SNAPSHOT'
+plugins {
+    id "com.jfrog.bintray" version "1.8.0"
+}
+
+group 'org.jv4l2'
+version '1.0'
 
 apply plugin: 'java'
 
@@ -11,4 +15,24 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+jar {
+    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+}
+
+bintray {
+    user = project.hasProperty('user') ? project.property('user') : System.getenv("BINTRAY_USER") != null ? System.getenv("BINTRAY_USER") : ""
+    key = project.hasProperty('key') ? project.property('key'): System.getenv("BINTRAY_KEY") != null ? System.getenv("BINTRAY_KEY") : ""
+    configurations = ['archives']
+    pkg {
+        repo = "Vision"
+        name = "JV4L2"
+        userOrg = "team401"
+        licenses = ["GPL-3.0"]
+        vcsUrl = "https://github.com/team401/JV4L2"
+        version {
+            name = this.version
+        }
+    }
 }

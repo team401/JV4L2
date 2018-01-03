@@ -12,7 +12,10 @@
 #include "org_jv4l2_Jv4l2JNI.h"
 
 JNIEXPORT jint JNICALL Java_org_jv4l2_Jv4l2JNI_open(JNIEnv *env, jclass clazz, jstring address) {
-    return v4l2_open((*env)->GetStringUTFChars(env, address, 0), O_RDWR);
+    const char *addr = (*env)->GetStringUTFChars(env, address, 0);
+    int result = v4l2_open(addr, O_RDWR);
+    (*env)->ReleaseStringUTFChars(env, address, addr);
+    return result;
 }
 
 JNIEXPORT void JNICALL Java_org_jv4l2_Jv4l2JNI_close(JNIEnv *env, jclass clazz, jint handle) {
