@@ -12,20 +12,17 @@ package org.jv4l2;/*
  */
 public class Camera {
     private int handle = -1;
-    private String address = "";
 
-    public Camera(int cameraNum) {
-        address = "/dev/video" + cameraNum;
-    }
-
-    public Camera(String path) {
-        address = path;
-    }
-
-    public void open() {
-        if (!address.isEmpty()) {
+    public void open(String address) {
+        if (address != null) {
             handle = Jv4l2JNI.open(address);
+        } else {
+            throw new IllegalArgumentException("'address' cannot be null!");
         }
+    }
+
+    public void open(int id) {
+        handle = Jv4l2JNI.open("/dev/video" + id);
     }
 
     public int setProperty(int property, int value) {
